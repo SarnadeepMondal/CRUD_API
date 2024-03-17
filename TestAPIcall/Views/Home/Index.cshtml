@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Resources>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<!-- The form -->
+<form method="post" asp-controller="Home" asp-action="Index">
+    <input type="text" placeholder="ResourceName.." name="ResourceName" id="ResourceName">
+    <button type="submit" style="background-color : lightskyblue"><i class="fa fa-search"></i></button>
+
+<div class="text-center">
+    <h1 class="display-4">Resource Data Fetch</h1>
+    <div class="container-fluid">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">ResourceID</th>
+                    <th scope="col">ResourceName</th>
+                    <th scope="col">Destination</th>
+                    <th scope="col">ManagerID</th>
+                    <th scope="col">ContactNo</th>
+                    <th scope="col">EmailID</th>
+                    <th scope="col">SkillSets</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var r in Model)
+                {
+                    <tr>
+                        <td>@r.resourceID</td>
+                        <td>@r.resourceName</td>
+                        <td> @r.destination</td>
+                        <td> @r.managerID</td>
+                        <td>@r.contactNo</td>
+                        <td>@r.emailID</td>
+                        <td>@r.skillSets</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+</form>
